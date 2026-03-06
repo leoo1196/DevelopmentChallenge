@@ -1,7 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using DevelopmentChallenge.Data.Classes;
+﻿using DevelopmentChallenge.Data.Classes;
 using NUnit.Framework;
+using System.Collections.Generic;
 
 namespace DevelopmentChallenge.Data.Tests
 {
