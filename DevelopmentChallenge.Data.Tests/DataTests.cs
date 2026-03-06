@@ -23,6 +23,13 @@ namespace DevelopmentChallenge.Data.Tests
         }
 
         [TestCase]
+        public void TestResumenListaVaciaFormasEnItaliano()
+        {
+            Assert.AreEqual("<h1>Elenco vuoto di forme!</h1>",
+                FormaGeometrica.Imprimir(Enumerable.Empty<IForma>().ToList(), new LenguajeItaliano()));
+        }
+
+        [TestCase]
         public void TestResumenListaConUnCuadrado()
         {
             var cuadrados = new List<IForma> {new Cuadrado(5)};
@@ -86,6 +93,23 @@ namespace DevelopmentChallenge.Data.Tests
 
             Assert.AreEqual(
                 "<h1>Reporte de Formas</h1>2 Cuadrados | Area 29 | Perimetro 28 <br/>2 Círculos | Area 13,01 | Perimetro 18,06 <br/>3 Triángulos | Area 49,64 | Perimetro 51,6 <br/>TOTAL:<br/>7 formas Perimetro 97,66 Area 91,65",
+                resumen);
+        }
+
+        [TestCase]
+        public void TestResumenListaTrapeciosEnItaliano()
+        {
+            var formas = new List<IForma>
+            {
+                new Trapecio(10m, 6m, 4m, 4m, 5m),
+                new Trapecio(15m, 10m, 5m, 5m, 6m),
+                new Trapecio(9m, 6m, 5m, 5m, 4m)
+            };
+
+            var resumen = FormaGeometrica.Imprimir(formas, new LenguajeItaliano());
+
+            Assert.AreEqual(
+                "<h1>Rapporto sui forme</h1>3 Trapezi | Zona 145 | Perimetro 84 <br/>TOTAL:<br/>3 forme Perimetro 84 Zona 145",
                 resumen);
         }
     }
